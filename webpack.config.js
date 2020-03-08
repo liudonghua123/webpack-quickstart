@@ -80,5 +80,6 @@ module.exports = {
     overlay: true, //默认不启用
     clientLogLevel: 'silent', //日志等级
     compress: true, //是否启用 gzip 压缩
+    hot: true,
   },
 };
