@@ -33,6 +33,25 @@ module.exports = {
         ],
         exclude: /node_modules/,
       },
+      {
+        test: /\.(png|jpg|gif|jpeg|webp|svg|eot|ttf|woff|woff2|jfif)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 10240, //10K
+              esModule: false,
+              name: '[name]_[hash:6].[ext]',
+              outputPath: 'assets',
+            },
+          },
+        ],
+        exclude: /node_modules/,
+      },
+      // {
+      //   test: /.html$/,
+      //   use: 'html-withimg-loader',
+      // },
     ],
   },
   plugins: [
