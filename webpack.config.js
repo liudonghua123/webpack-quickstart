@@ -12,6 +12,27 @@ module.exports = {
         use: ['babel-loader'],
         exclude: /node_modules/, //排除 node_modules 目录
       },
+      {
+        test: /\.(le|c)ss$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: function() {
+                return [
+                  require('autoprefixer')({
+                    overrideBrowserslist: ['>0.25%', 'not dead'],
+                  }),
+                ];
+              },
+            },
+          },
+          'less-loader',
+        ],
+        exclude: /node_modules/,
+      },
     ],
   },
   plugins: [
